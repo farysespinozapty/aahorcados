@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CyberDefender — Ahorcado de Ciberseguridad</title>
+<style>
+:root{--bg:#f6f0ff;--card:#fffaff;--p:#7c4dba;--p2:#a77bd5;--l:#eadcff;--d:#38234f;--g:#72c99b;--r:#e77a91}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--d);background:radial-gradient(circle at 10% 10%,#fff 0 12%,transparent 30%),radial-gradient(circle at 90% 20%,#eadcff 0 10%,transparent 28%),var(--bg)}
+button{font:inherit}.app{max-width:1180px;margin:auto;padding:22px}header,.card{background:rgba(255,250,255,.94);border:2px solid var(--l);border-radius:24px;box-shadow:0 12px 30px #5b378020}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 22px}.brand{display:flex;align-items:center;gap:13px}.logo{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#8e61c7,#c7a6e9);font-size:30px}h1{font-size:clamp(22px,4vw,32px);margin:0}.subtitle{margin:3px 0 0;color:#775d8c;font-size:14px}.stats{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}.stat{background:#f1e8fc;border-radius:14px;padding:9px 13px;text-align:center;min-width:82px}.stat b{display:block;font-size:18px;color:var(--p)}.stat span{font-size:11px;color:#795e8e}
+main{margin-top:18px;display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.card{padding:22px}.mission-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.badge{background:#eee1ff;color:#6c3ca5;padding:7px 11px;border-radius:999px;font-weight:800;font-size:12px}.category{font-size:12px;color:#896d9d;font-weight:700;text-transform:uppercase;letter-spacing:.7px}.progress{height:10px;background:#eee5f6;border-radius:20px;overflow:hidden;margin:14px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#8e61c7,#c9a6e9);transition:.4s}h2{margin:6px 0 2px;font-size:25px}.tip{margin:0 0 18px;color:#6e587d;font-size:14px}.shields{display:flex;gap:6px;font-size:25px;margin:8px 0}.shield.off{filter:grayscale(1);opacity:.2}
+.word{display:flex;justify-content:center;align-items:flex-end;gap:8px;flex-wrap:wrap;min-height:72px;margin:20px 0}.letter{width:34px;height:46px;border-bottom:4px solid #9b75c3;display:grid;place-items:center;font-size:25px;font-weight:900}.letter.space{border-bottom:0;width:15px}.letter.revealed{color:#684099}.keyboard{display:grid;grid-template-columns:repeat(9,1fr);gap:7px;margin-top:18px}.key{border:0;background:#f0e5fa;color:#573573;border-radius:10px;padding:10px 4px;font-weight:800;cursor:pointer;transition:.15s}.key:hover:not(:disabled){transform:translateY(-2px);background:#e5d5f7}.key:disabled{opacity:.4;cursor:not-allowed}.key.good{background:#ccefdc;color:#246443}.key.bad{background:#f8d4dc;color:#8c3148}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{border:0;border-radius:13px;padding:11px 15px;font-weight:800;cursor:pointer;background:#eee1ff;color:#613a8b}.btn.primary{background:linear-gradient(135deg,#8151b8,#a77bd5);color:white}.lesson{display:none;margin-top:16px;background:#faf5ff;border:2px solid #e7d8f6;border-radius:18px;padding:18px}.lesson.show{display:block;animation:pop .3s ease}@keyframes pop{from{transform:scale(.98);opacity:0}to{transform:scale(1);opacity:1}}.lesson h3{margin:0 0 8px;color:#663c91}.definition{line-height:1.55;margin:0 0 12px}.example{background:#fff;border-radius:13px;padding:12px;border-left:5px solid var(--p);font-size:14px}.quiz{margin-top:15px}.quiz h3{font-size:16px}.options{display:grid;gap:8px}.option{border:2px solid #e4d5f2;background:#fff;border-radius:12px;padding:11px;text-align:left;cursor:pointer;color:var(--d);font-weight:700}.option.correct{background:#d8f3e4;border-color:#7ac89d}.option.wrong{background:#f9dce2;border-color:#e78a9c}.feedback{font-weight:800;margin-top:10px}.right-card{text-align:center}.defender{width:130px;height:130px;margin:5px auto 12px;border-radius:50%;display:grid;place-items:center;font-size:72px;background:linear-gradient(145deg,#eee0ff,#fff);box-shadow:inset 0 0 0 8px #f5edff,0 10px 25px #5a32801a}.mini-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.info{background:#f8f0fd;border-radius:15px;padding:13px}.info b{font-size:20px;color:#70479a;display:block}.info span{font-size:11px;color:#7a6485}.learning{text-align:left;background:#fff;border:2px solid #eee0f8;border-radius:17px;padding:15px;margin-top:16px}.learning h3{margin:0 0 7px}.learning ul{padding-left:20px;margin:8px 0;line-height:1.6;font-size:13px}.dictionary{margin-top:18px;text-align:left}.dictionary summary{cursor:pointer;font-weight:900;color:#6b4094}.dict-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:13px}.term{background:#f8f0fd;border-radius:12px;padding:10px;font-size:13px}.term b{color:#673e91}.modal{position:fixed;inset:0;background:#2e193d73;display:none;place-items:center;padding:20px;z-index:10}.modal.show{display:grid}.modal-box{max-width:620px;width:100%;max-height:90vh;overflow-y:auto;background:#fffaff;border-radius:25px;padding:28px;text-align:center;box-shadow:0 25px 70px #26143440}.final-dictionary{margin:18px 0 20px;padding:14px;background:#f8f0fd;border-radius:16px}.final-dictionary summary{cursor:pointer;font-weight:900;color:#6b4094}.final-dictionary .dict-grid{grid-template-columns:repeat(2,minmax(0,1fr));text-align:left}.final-dictionary .term{padding:10px;border-radius:10px;background:#fff}.final-score{font-size:44px;font-weight:950;color:#7345a4}.small{font-size:12px;color:#806c8d}
+@media(max-width:850px){main{grid-template-columns:1fr}.right-card{order:-1}}@media(max-width:560px){.app{padding:12px}.card{padding:16px}header{align-items:flex-start;flex-direction:column}.stats{width:100%;justify-content:space-between}.stat{flex:1;min-width:0}.keyboard{grid-template-columns:repeat(7,1fr)}.key{padding:9px 2px}.letter{width:27px;font-size:21px}.dict-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">🛡️</div><div><h1>CyberDefender</h1><p class="subtitle">Ahorcado de Ciberseguridad • Aprende mientras juegas</p></div></div>
+<div class="stats"><div class="stat"><b id="score">0</b><span>Puntos</span></div><div class="stat"><b id="missionNum">1/19</b><span>Misión</span></div><div class="stat"><b id="learned">0</b><span>Aprendidos</span></div></div></header>
+<main>
+<section class="card">
+<div class="mission-top"><span class="badge" id="missionBadge">MISIÓN 1</span><span class="category" id="category"></span></div>
+<div class="progress"><div id="progressBar"></div></div><h2 id="missionTitle"></h2><p class="tip" id="missionTip"></p><div class="shields" id="shields"></div>
+<div class="word" id="word"></div><div class="keyboard" id="keyboard"></div>
+<div class="actions"><button class="btn" id="hintBtn">💡 Pista (-10)</button><button class="btn" id="revealBtn">👀 Ver palabra</button><button class="btn" id="restartBtn">🔄 Reiniciar</button></div>
+<div class="lesson" id="lesson"><h3 id="lessonTitle"></h3><p class="definition" id="definition"></p><div class="example" id="example"></div><div class="quiz"><h3 id="quizQuestion"></h3><div class="options" id="options"></div><div class="feedback" id="feedback"></div></div><button class="btn primary" id="nextBtn" style="display:none;margin-top:14px">➡️ Siguiente misión</button></div>
+</section>
+<aside class="card right-card"><div class="defender">🧑‍💻</div><h2>Tu misión</h2><p class="tip">Conviértete en un defensor digital. Cada palabra te enseña algo que puedes aplicar en Internet.</p>
+<div class="mini-info"><div class="info"><b id="mistakes">0</b><span>Errores actuales</span></div><div class="info"><b id="streak">0</b><span>Racha</span></div></div>
+<div class="learning"><h3>🎓 ¿Cómo se aprende?</h3><ul><li><b>Adivina:</b> descubre una palabra.</li><li><b>Comprende:</b> recibe una explicación sencilla.</li><li><b>Aplica:</b> resuelve una situación práctica.</li><li><b>Piensa:</b> toma decisiones seguras.</li></ul></div>
+</aside>
+</main></div>
+<div class="modal" id="modal"><div class="modal-box"><div id="finalIcon" style="font-size:55px">🏆</div><h2 id="finalTitle">¡Juego completado!</h2><p id="finalMessage"></p><div class="final-score" id="finalScore">0</div><p class="small">puntos totales</p><details class="dictionary final-dictionary"><summary>📚 Consultar CyberDiccionario</summary><p class="small">¡Repasa aquí todos los conceptos que aprendiste durante el juego!</p><div class="dict-grid" id="dictionary"></div></details><button class="btn primary" onclick="restartGame()">🚀 Jugar de nuevo</button></div></div>
+<script>
+const missions=[
+
+["PHISHING","Mensajes y estafas","El mensaje engañoso","Algunas personas intentan engañarte para robar información.","Suele usar mensajes o páginas falsas.","El phishing es un engaño en el que alguien se hace pasar por un servicio confiable para conseguir contraseñas, datos o dinero.","🎣 Si recibes un mensaje de premio con un enlace, detente y verifica antes de abrirlo.","Recibes un mensaje urgente de un supuesto banco con un enlace. ¿Qué haces?",["Hacer clic enseguida","Responder con tu contraseña","No abrirlo y contactar al banco desde su canal oficial"],2],
+["VIRUS","Amenazas digitales","El visitante peligroso","Puede afectar archivos y dispositivos.","Es un tipo de programa malicioso.","Un virus informático es un programa malicioso que puede propagarse y causar problemas en un dispositivo o sus archivos.","🦠 Descargar archivos de lugares desconocidos aumenta el riesgo.","¿Cuál es una forma segura de reducir riesgos al descargar?",["Descargar desde sitios confiables","Abrir cualquier archivo recibido","Desactivar todas las protecciones"],0],
+["MALWARE","Amenazas digitales","Software malicioso","Su nombre reúne muchos programas dañinos.","Es una palabra que reúne muchos tipos de programas dañinos.","Malware es el nombre general para programas creados para dañar, espiar, robar información o realizar acciones sin permiso.","🧩 Virus, troyanos y algunos programas espía son ejemplos de malware.","¿Qué significa malware?",["Un juego educativo","Software malicioso","Una contraseña segura"],1],
+["PRIVACIDAD","Datos personales","Cuida lo que compartes","Tiene que ver con controlar quién puede conocer tu información.","Es un derecho y una práctica importante al usar Internet.","La privacidad consiste en proteger tu información personal y decidir qué datos compartes, con quién y para qué.","🔒 No necesitas publicar tu dirección, escuela, teléfono o ubicación para usar todos los servicios.","¿Cuál es la opción más segura?",["Compartir tu dirección públicamente","Revisar qué información pide una aplicación antes de compartirla","Publicar todos tus datos"],1],
+["DATOS PERSONALES","Datos personales","Información que te identifica","Son datos que pueden decir quién eres.","La respuesta tiene dos palabras.","Los datos personales son información relacionada con una persona, como su nombre, teléfono, dirección o información de una cuenta.","👤 Antes de compartir un dato, pregunta si realmente es necesario y con quién lo compartes.","¿Cuál es un dato personal?",["El color de una pared","Tu número de teléfono","El nombre de un videojuego"],1],
+["ACTUALIZACIÓN","Protección","Pon tu dispositivo al día","Las actualizaciones pueden corregir problemas de seguridad.","Cuando aparece una nueva versión, conviene instalarla desde una fuente confiable.","Una actualización puede incluir mejoras, correcciones y parches de seguridad.","🔧 Mantener sistemas y aplicaciones actualizados ayuda a corregir vulnerabilidades conocidas.","¿Por qué son importantes las actualizaciones de seguridad?",["Porque siempre cambian el fondo","Porque pueden corregir vulnerabilidades","Porque eliminan las contraseñas"],1],
+["ANTIVIRUS","Protección","Un ayudante de seguridad","Puede detectar y ayudar a bloquear ciertos programas maliciosos.","Es una herramienta de protección.","Un antivirus puede detectar, bloquear o eliminar determinados programas maliciosos.","🛡️ Úsalo junto con actualizaciones, descargas seguras y buenos hábitos.","¿Qué combinación es más segura?",["Solo antivirus y abrir cualquier enlace","Antivirus más hábitos seguros y actualizaciones","Desactivar la protección"],1],
+["AUTENTICACIÓN","Cuentas","Comprueba quién eres","Sirve para verificar la identidad antes de entrar.","Es un proceso de verificación.","La autenticación comprueba que una persona realmente es quien dice ser para acceder a una cuenta o servicio.","🔑 Contraseñas, códigos y biometría pueden formar parte de la autenticación.","¿Qué hace la autenticación?",["Verifica la identidad del usuario","Borra archivos","Aumenta la velocidad de Internet"],0],
+["CIFRADO","Protección de información","Convierte los datos en un código","Ayuda a proteger información.","Transforma la información mediante técnicas matemáticas.","El cifrado transforma los datos para que quienes no tienen la forma adecuada no puedan entenderlos fácilmente.","🔐 Se usa para proteger información en muchas comunicaciones y servicios.","¿Para qué sirve el cifrado?",["Para proteger la información","Para crear dibujos","Para eliminar Internet"],0],
+["CORTAFUEGOS","Redes","La barrera de tu red","Ayuda a controlar determinadas conexiones.","Su nombre recuerda a una barrera que detiene un incendio.","Un cortafuegos o firewall ayuda a controlar el tráfico de red según reglas de seguridad.","🧱 Es como una puerta con reglas: algunas conexiones se permiten y otras se bloquean.","¿Qué función tiene un cortafuegos?",["Controlar determinadas conexiones de red","Crear dibujos","Guardar fotos"],0],
+["COPIA DE SEGURIDAD","Protección de datos","Ten un plan B","Sirve para recuperar información si algo sale mal.","La respuesta tiene tres palabras.","Una copia de seguridad es una copia de archivos importantes guardada para poder recuperarlos si se pierden o dañan.","💾 Guardar copias de fotos o trabajos importantes puede evitar pérdidas.","¿Para qué sirve una copia de seguridad?",["Para recuperar información","Para compartir contraseñas","Para hacer más lento el dispositivo"],0],
+["ESTAFA","Mensajes y fraudes","No te dejes engañar","Busca señales de engaño antes de entregar información o dinero.","Promesas falsas pueden formar parte de ella.","Una estafa es un engaño creado para conseguir dinero, información o algún beneficio.","🚨 Desconfía de premios inesperados, ofertas demasiado buenas y mensajes que presionan.","¿Qué señal puede indicar una estafa?",["Un mensaje que te da tiempo","Una solicitud urgente que exige dinero o datos","Una aplicación oficial"],1],
+["ENLACE","Navegación","Antes de hacer clic","No todos los enlaces llevan al lugar que parecen indicar.","Puedes encontrarlo en mensajes y páginas.","Un enlace permite acceder a otra página o recurso. Conviene comprobar a dónde lleva y quién lo envía.","🔎 Si parece extraño, no tienes que abrirlo. Busca el sitio oficial por tu cuenta.","¿Qué debes revisar antes de abrir un enlace desconocido?",["Solo el color","Quién lo envió y a qué sitio dirige","Si tiene muchos emojis"],1],
+["SPAM","Mensajes","Mensajes no deseados","Son comunicaciones que no esperabas.","Suele aparecer en grandes cantidades.","El spam son mensajes no solicitados que pueden contener publicidad, engaños o enlaces peligrosos.","📨 No respondas ni abras enlaces sospechosos solo porque llegaron a tu bandeja.","¿Qué conviene hacer con un mensaje sospechoso no solicitado?",["Ignorarlo, eliminarlo o reportarlo","Reenviarlo a todos","Compartir tus datos"],0],
+["HUELLA DIGITAL","Identidad digital","Lo que dejas en Internet","Tus acciones digitales pueden dejar rastros.","Es una marca relacionada con tu actividad en línea.","La huella digital es el conjunto de rastros que dejamos al usar Internet, como publicaciones y comentarios.","👣 Antes de publicar algo, piensa si estarías bien con que otras personas lo vieran después.","¿Qué ayuda a cuidar tu huella digital?",["Pensar antes de publicar","Compartir todo","Usar la misma contraseña"],0],
+["RED SEGURA","Redes","Conéctate con cuidado","No todas las Wi-Fi ofrecen el mismo nivel de confianza.","La respuesta tiene dos palabras.","Una red segura es una conexión utilizada y configurada de forma que reduzca riesgos. En redes públicas hay que tener cuidado.","📶 Evita acciones muy sensibles en redes desconocidas cuando no sea necesario.","En una Wi-Fi pública desconocida, ¿qué es recomendable?",["Compartir información sensible","Ser cuidadoso y evitar acciones sensibles","Desactivar protecciones"],1],
+["DOBLE AUTENTICACIÓN","Cuentas","Una capa extra","Añade una segunda comprobación además de la contraseña.","También se conoce como 2FA.","La doble autenticación añade otro paso para comprobar tu identidad, como un código o llave de seguridad.","🛡️ Si alguien descubre tu contraseña, el segundo factor puede dificultar el acceso.","¿Qué aporta la doble autenticación?",["Una capa adicional de protección","Una contraseña más corta","Menos seguridad"],0],
+["PERMISO","Aplicaciones","¿Qué puede hacer esta app?","Las aplicaciones pueden pedir acceso a funciones o información.","Debes revisar antes de aceptar.","Un permiso autoriza a una aplicación a utilizar determinada función o información, como cámara, micrófono o ubicación.","📱 Si una calculadora pide micrófono sin razón clara, pregunta si realmente lo necesita.","¿Qué debes hacer antes de aceptar permisos?",["Aceptar todos","Revisar qué pide y si tiene sentido","Compartir la cuenta"],1],
+["IDENTIDAD DIGITAL","Identidad","Tu versión en Internet","Es la información y representación relacionada contigo en el mundo digital.","Incluye cómo apareces y actúas en línea.","La identidad digital está formada por información, perfiles, cuentas y acciones relacionadas con una persona en Internet.","🌐 Cuidar perfiles, privacidad y publicaciones ayuda a construir una identidad digital responsable.","¿Qué forma parte de tu identidad digital?",["Solo tu color favorito","Tus perfiles y acciones en Internet","Únicamente tu dispositivo"],1]
+].map(x=>({word:x[0],cat:x[1],title:x[2],tip:x[3],hint:x[4],definition:x[5],example:x[6],question:x[7],options:x[8],correct:x[9]}));
+
+let index=0,score=0,shields=5,wrong=0,streak=0,learned=0,guessed=new Set(),hintUsed=false,roundDone=false;
+const $=id=>document.getElementById(id);
+function normalize(t){return t.normalize("NFD").replace(/[̀-̂̄-ͯ]/g,"").toUpperCase()}
+const alphabet="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+function startMission(){
+ const m=missions[index];guessed=new Set();hintUsed=false;roundDone=false;shields=5;wrong=0;
+ $("missionBadge").textContent=`MISIÓN ${index+1}`;$("missionNum").textContent=`${index+1}/${missions.length}`;
+ $("category").textContent=m.cat;$("missionTitle").textContent=m.title;$("missionTip").textContent=m.tip;
+ $("progressBar").style.width=`${index/missions.length*100}%`;$("lesson").classList.remove("show");
+ $("nextBtn").style.display="none";$("hintBtn").disabled=false;$("revealBtn").disabled=false;
+ renderShields();renderWord();renderKeyboard();updateStats();
+}
+function renderWord(){
+ const target=normalize(missions[index].word);$("word").innerHTML="";
+ [...target].forEach(ch=>{let d=document.createElement("div");d.className="letter"+(ch===" "?" space":"");
+ if(ch===" ")d.innerHTML="&nbsp;";else if(guessed.has(ch)||roundDone){d.textContent=ch;d.classList.add("revealed")}else d.textContent="_";$("word").appendChild(d)})
+}
+function renderKeyboard(){
+ $("keyboard").innerHTML="";[...alphabet].forEach(ch=>{let b=document.createElement("button");b.className="key";b.textContent=ch;b.disabled=guessed.has(ch)||roundDone;
+ b.onclick=()=>guessLetter(ch);if(guessed.has(ch))b.classList.add(normalize(missions[index].word).includes(ch)?"good":"bad");$("keyboard").appendChild(b)})
+}
+function renderShields(){$("shields").innerHTML="";for(let i=0;i<5;i++){let s=document.createElement("span");s.textContent="🛡️";if(i>=shields)s.className="shield off";$("shields").appendChild(s)}}
+function updateStats(){$("score").textContent=score;$("learned").textContent=learned;$("mistakes").textContent=wrong;$("streak").textContent=streak}
+function guessLetter(ch){
+ if(roundDone||guessed.has(ch))return;let target=normalize(missions[index].word);guessed.add(ch);
+ if(target.includes(ch)){score+=15;streak++}else{shields--;wrong++;streak=0;score=Math.max(0,score-5)}
+ renderWord();renderKeyboard();renderShields();updateStats();
+ if([...target].filter(c=>c!==" ").every(c=>guessed.has(c)))winRound();else if(shields<=0)loseRound()
+}
+function winRound(){roundDone=true;score+=50;learned++;$("progressBar").style.width=`${(index+1)/missions.length*100}%`;showLesson(true)}
+function loseRound(){roundDone=true;streak=0;renderKeyboard();$("hintBtn").disabled=true;$("revealBtn").disabled=true;finishGame(false)}
+function revealWord(){if(roundDone)return;[...normalize(missions[index].word)].forEach(c=>{if(c!==" ")guessed.add(c)});score=Math.max(0,score-30);roundDone=true;renderWord();renderKeyboard();showLesson(false)}
+function useHint(){
+ if(roundDone||hintUsed)return;hintUsed=true;score=Math.max(0,score-10);let t=normalize(missions[index].word);
+ let missing=[...new Set([...t].filter(c=>c!==" "&&!guessed.has(c)))];if(missing.length)guessed.add(missing[Math.floor(Math.random()*missing.length)]);
+ renderWord();renderKeyboard();$("hintBtn").disabled=true;updateStats()
+}
+function showLesson(won){
+ let m=missions[index];$("lesson").classList.add("show");$("lessonTitle").textContent=won?"🎉 ¡Correcto!":"📚 Aprende: "+m.word;
+ $("definition").textContent=m.definition;$("example").textContent=m.example;$("quizQuestion").textContent="🧠 "+m.question;$("feedback").textContent="";$("options").innerHTML="";
+ m.options.forEach((op,i)=>{let b=document.createElement("button");b.className="option";b.textContent=op;b.onclick=()=>answerQuiz(i,b);$("options").appendChild(b)});
+ $("nextBtn").style.display="none";updateStats();setTimeout(()=>$("lesson").scrollIntoView({behavior:"smooth",block:"nearest"}),80)
+}
+function answerQuiz(choice,button){
+ let m=missions[index],all=[...$("options").children];all.forEach(b=>b.disabled=true);
+ if(choice===m.correct){button.classList.add("correct");$("feedback").textContent="✅ ¡Muy bien! Esa es una decisión segura.";$("feedback").style.color="#26724b";score+=35}
+ else{button.classList.add("wrong");all[m.correct].classList.add("correct");$("feedback").textContent="💡 Casi. Mira la respuesta marcada y recuerda la explicación.";$("feedback").style.color="#9a3d53";score=Math.max(0,score-10)}
+ $("nextBtn").style.display="inline-block";updateStats()
+}
+function nextRound(){if(index<missions.length-1){index++;startMission()}else finishGame()}
+function finishGame(won=true){
+ $("finalScore").textContent=score;
+ if(won){
+  $("finalIcon").textContent="🏆";
+  $("finalTitle").textContent="¡Juego completado!";
+  $("finalMessage").textContent=score>=1600?"🌟 ¡Excelente! Ya tienes una gran base para navegar de forma más segura.":score>=1000?"👏 ¡Muy bien! Has aprendido muchos conceptos. Sigue practicando.":"💜 ¡Buen trabajo! Repasa el CyberDiccionario y vuelve a intentarlo.";
+ }else{
+  $("finalIcon").textContent="🛡️";
+  $("finalTitle").textContent="¡Te has quedado sin escudos!";
+  $("finalMessage").textContent="El juego ha terminado porque cometiste demasiados errores. No te preocupes: puedes repasar los conceptos en el CyberDiccionario e intentarlo de nuevo.";
+ }
+ $("modal").classList.add("show")
+}
+function restartGame(){$("modal").classList.remove("show");index=0;score=0;learned=0;streak=0;startMission()}
+function buildDictionary(){
+ $("dictionary").innerHTML="";let seen=new Set();missions.forEach(m=>{if(seen.has(m.word))return;seen.add(m.word);let d=document.createElement("div");d.className="term";d.innerHTML=`<b>${m.word}</b><br>${m.definition}`;$("dictionary").appendChild(d)})
+}
+$("hintBtn").onclick=useHint;$("revealBtn").onclick=revealWord;$("restartBtn").onclick=restartGame;$("nextBtn").onclick=nextRound;
+buildDictionary();startMission();
+</script>
+</body>
+</html>
